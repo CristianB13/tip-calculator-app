@@ -1,1 +1,48 @@
-<p>tip-calculator works!</p>
+<form>
+    <div class="form-input">
+        <div class="form-control">
+            <header>
+                <div class="title">Bill</div>
+                <div class="error">Errors</div>
+            </header>
+            <input type="text" name="" id="">
+        </div>
+        <div class="form-control">
+            <header>
+                <div class="title">Select Tip %</div>
+                <div class="error">Errors</div>
+            </header>
+            <input type="text" name="" id="">
+        </div>
+        <div class="form-control">
+            <header>
+                <div class="title">Number of People</div>
+                <div class="error">Errors</div>
+            </header>
+            <input type="text" name="" id="">
+        </div>
+    </div>
+    <div class="form-output">
+        <div class="outputs">
+            <div class="output">
+                <div class="output-title">
+                    <p>Tip Amount</p>
+                    <p>/ person</p>
+                </div>
+                <div class="output-value">
+                    ${{0 | number}}
+                </div>
+            </div>
+            <div class="output">
+                <div class="output-title">
+                    <p>Total</p>
+                    <p>/ person</p>
+                </div>
+                <div class="output-value">
+                    ${{0 | number}}
+                </div>
+            </div>
+        </div>
+        <button type="reset">Reset</button>
+    </div>
+</form>
