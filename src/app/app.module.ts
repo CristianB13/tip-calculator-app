@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TipCalculatorComponent } from './components/tip-calculator/tip-calculator.component';
@@ -10,7 +11,8 @@ import { TipCalculatorComponent } from './components/tip-calculator/tip-calculat
     TipCalculatorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

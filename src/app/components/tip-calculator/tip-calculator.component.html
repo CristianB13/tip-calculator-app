@@ -1,25 +1,38 @@
-<form>
+<form [formGroup]="form">
     <div class="form-input">
         <div class="form-control">
             <header>
                 <div class="title">Bill</div>
-                <div class="error">Errors</div>
+                <div *ngIf="bill.touched && bill.invalid" class="error">
+                    <p *ngIf="bill.errors?.['required']">This field is required</p>
+                    <p *ngIf="bill.errors?.['pattern']">Should be a number</p>
+                    <p *ngIf="bill.errors?.['min']">Should be greater than 0</p>
+                </div>
             </header>
-            <input type="text" name="" id="">
+            <input [formControl]="bill" type="text" name="" id="">
         </div>
         <div class="form-control">
             <header>
                 <div class="title">Select Tip %</div>
-                <div class="error">Errors</div>
+                <div *ngIf="tip.touched && tip.invalid" class="error">
+                    <p *ngIf="tip.errors?.['pattern']">Should be a number</p>
+                    <p *ngIf="tip.errors?.['min']">Should be greater than 0</p>
+                </div>
             </header>
-            <input type="text" name="" id="">
+            <input [formControl]="tip" type="text">
         </div>
         <div class="form-control">
             <header>
                 <div class="title">Number of People</div>
-                <div class="error">Errors</div>
+                <div class="error">
+                    <div *ngIf="nrOfPeople.touched && nrOfPeople.invalid" class="error">
+                        <p *ngIf="nrOfPeople.errors?.['required']">This field is required</p>
+                        <p *ngIf="nrOfPeople.errors?.['pattern']">Should be a interger number</p>
+                        <p *ngIf="nrOfPeople.errors?.['min']">Should be greater than 0</p>
+                    </div>
+                </div>
             </header>
-            <input type="text" name="" id="">
+            <input [formControl]="nrOfPeople" type="text" name="" id="">
         </div>
     </div>
     <div class="form-output">
@@ -43,6 +56,9 @@
                 </div>
             </div>
         </div>
-        <button type="reset">Reset</button>
+        <button [disabled]="form.untouched" type="reset">Reset</button>
     </div>
 </form>
+{{bill.value}}
+{{tip.value}}
+{{nrOfPeople.value}}

@@ -73,8 +73,14 @@ form {
         color: $dark-cyan;
         background-color: $strong-cyan;
 
-        &:hover {
+        &:hover:not(:disabled) {
             background-color: $light-grayish-cyan;
         }
+
+        &:disabled {
+            background-color: lighten($dark-cyan, 5%);
+            cursor: not-allowed;
+        }
+
     }
 }
