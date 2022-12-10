@@ -30,7 +30,7 @@
               "src/assets"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/assets"]
+              "includePaths": ["src/styles"]
             },
             "styles": [
               "src/styles.scss"
