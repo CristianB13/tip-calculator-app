@@ -110,6 +110,7 @@ form {
 
     &:hover:not(:disabled) {
       background-color: $light-grayish-cyan;
+      cursor: pointer;
     }
 
     &:disabled {
