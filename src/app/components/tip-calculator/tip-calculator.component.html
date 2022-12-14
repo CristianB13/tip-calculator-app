@@ -19,7 +19,10 @@
                     <p *ngIf="tip.errors?.['min']">Should be greater than 0</p>
                 </div>
             </header>
-            <input [formControl]="tip" type="text">
+            <div class="tip-grid">
+                <app-radio-button *ngFor="let val of ['5', '10', '15', '25', '50']" [control]="tip" label={{val}} value={{val}}></app-radio-button>
+                <label><input [formControl]="tip" type="text"></label>
+            </div>
         </div>
         <div class="form-control">
             <header>
@@ -56,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <button [disabled]="form.untouched" type="reset">Reset</button>
+        <button [disabled]="form.pristine" type="reset">Reset</button>
     </div>
 </form>
 {{bill.value}}

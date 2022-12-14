@@ -1,0 +1,22 @@
+@import '../../../styles/colors';
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $dark-cyan;
+  padding: 0.5rem 0;
+  border-radius: 0.3rem;
+  color: $white;
+
+  &:has(:checked),
+  &:hover {
+    background-color: $strong-cyan;
+    color: $dark-cyan;
+    cursor: pointer;
+  }
+}

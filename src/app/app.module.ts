@@ -4,11 +4,13 @@ import { ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TipCalculatorComponent } from './components/tip-calculator/tip-calculator.component';
+import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TipCalculatorComponent
+    TipCalculatorComponent,
+    RadioButtonComponent
   ],
   imports: [
     BrowserModule,
