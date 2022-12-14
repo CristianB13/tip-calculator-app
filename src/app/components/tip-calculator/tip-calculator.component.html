@@ -1,67 +1,72 @@
 <form [formGroup]="form">
-    <div class="form-input">
-        <div class="form-control">
-            <header>
-                <div class="title">Bill</div>
-                <div *ngIf="bill.touched && bill.invalid" class="error">
-                    <p *ngIf="bill.errors?.['required']">This field is required</p>
-                    <p *ngIf="bill.errors?.['pattern']">Should be a number</p>
-                    <p *ngIf="bill.errors?.['min']">Should be greater than 0</p>
-                </div>
-            </header>
-            <input [formControl]="bill" type="text" name="" id="">
+  <div class="form-input">
+    <div class="form-control">
+      <header>
+        <div class="title">Bill</div>
+        <div *ngIf="bill.touched && bill.invalid" class="error">
+          <p *ngIf="bill.errors?.['required']">This field is required</p>
+          <p *ngIf="bill.errors?.['pattern']">Should be a number</p>
+          <p *ngIf="bill.errors?.['min']">Should be greater than 0</p>
         </div>
-        <div class="form-control">
-            <header>
-                <div class="title">Select Tip %</div>
-                <div *ngIf="tip.touched && tip.invalid" class="error">
-                    <p *ngIf="tip.errors?.['pattern']">Should be a number</p>
-                    <p *ngIf="tip.errors?.['min']">Should be greater than 0</p>
-                </div>
-            </header>
-            <div class="tip-grid">
-                <app-radio-button *ngFor="let val of ['5', '10', '15', '25', '50']" [control]="tip" label={{val}} value={{val}}></app-radio-button>
-                <label><input [formControl]="tip" type="text"></label>
-            </div>
-        </div>
-        <div class="form-control">
-            <header>
-                <div class="title">Number of People</div>
-                <div class="error">
-                    <div *ngIf="nrOfPeople.touched && nrOfPeople.invalid" class="error">
-                        <p *ngIf="nrOfPeople.errors?.['required']">This field is required</p>
-                        <p *ngIf="nrOfPeople.errors?.['pattern']">Should be a interger number</p>
-                        <p *ngIf="nrOfPeople.errors?.['min']">Should be greater than 0</p>
-                    </div>
-                </div>
-            </header>
-            <input [formControl]="nrOfPeople" type="text" name="" id="">
-        </div>
+      </header>
+      <app-text-input [control]="bill" iconUrl="../../../assets/svg/icon-dollar.svg"></app-text-input>
     </div>
-    <div class="form-output">
-        <div class="outputs">
-            <div class="output">
-                <div class="output-title">
-                    <p>Tip Amount</p>
-                    <p>/ person</p>
-                </div>
-                <div class="output-value">
-                    ${{0 | number}}
-                </div>
-            </div>
-            <div class="output">
-                <div class="output-title">
-                    <p>Total</p>
-                    <p>/ person</p>
-                </div>
-                <div class="output-value">
-                    ${{0 | number}}
-                </div>
-            </div>
+    <div class="form-control">
+      <header>
+        <div class="title">Select Tip %</div>
+        <div *ngIf="tip.touched && tip.invalid" class="error">
+          <p *ngIf="tip.errors?.['pattern']">Should be a number</p>
+          <p *ngIf="tip.errors?.['min']">Should be greater than 0</p>
         </div>
-        <button [disabled]="form.pristine" type="reset">Reset</button>
+      </header>
+      <div class="tip-grid">
+        <app-radio-button
+          *ngFor="let val of ['5', '10', '15', '25', '50']"
+          [control]="tip"
+          label="{{ val }}"
+          value="{{ val }}"
+        ></app-radio-button>
+        <app-text-input [control]="tip" placeholder="Custom"></app-text-input>
+      </div>
     </div>
+    <div class="form-control">
+      <header>
+        <div class="title">Number of People</div>
+        <div class="error">
+          <div *ngIf="nrOfPeople.touched && nrOfPeople.invalid" class="error">
+            <p *ngIf="nrOfPeople.errors?.['required']">
+              This field is required
+            </p>
+            <p *ngIf="nrOfPeople.errors?.['pattern']">
+              Should be a interger number
+            </p>
+            <p *ngIf="nrOfPeople.errors?.['min']">Should be greater than 0</p>
+          </div>
+        </div>
+      </header>
+      <app-text-input [control]="nrOfPeople" iconUrl="../../../assets/svg/icon-person.svg"></app-text-input>
+    </div>
+  </div>
+  <div class="form-output">
+    <div class="outputs">
+      <div class="output">
+        <div class="output-title">
+          <p>Tip Amount</p>
+          <p>/ person</p>
+        </div>
+        <div class="output-value">${{ 0 | number }}</div>
+      </div>
+      <div class="output">
+        <div class="output-title">
+          <p>Total</p>
+          <p>/ person</p>
+        </div>
+        <div class="output-value">${{ 0 | number }}</div>
+      </div>
+    </div>
+    <button [disabled]="form.pristine" type="reset">Reset</button>
+  </div>
 </form>
-{{bill.value}}
-{{tip.value}}
-{{nrOfPeople.value}}
+{{ bill.value }}
+{{ tip.value }}
+{{ nrOfPeople.value }}
