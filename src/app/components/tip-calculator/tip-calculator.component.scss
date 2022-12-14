@@ -1,101 +1,113 @@
-@import '../../../styles/colors';
+@import "../../../styles/colors";
 
 $red: hsl(0, 100%, 45%);
 
-:host{
-    min-width: 40rem;
-    max-width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+:host {
+  min-width: 40rem;
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 form {
-    background-color: $white;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 1rem;
-    gap: 1rem;
-    width: 100%;
+  background-color: $white;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 1rem;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 .form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  .form-control {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    gap: 0.5rem;
 
-    .form-control {
-        display: flex;
-        flex-direction: column;
-        
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-            .title {
-                color: $dark-grayish-cyan
-            }
+      .title {
+        color: $dark-grayish-cyan;
+      }
 
-            .error {
-                color: $red;
-            }
-        }
-
-        .tip-grid {
-            width: 100%;
-            display: grid;
-            gap: .5rem;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
+      .error {
+        color: $red;
+      }
     }
+
+    .tip-grid {
+      width: 100%;
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
 }
 
 .form-output {
-    width: 100%;
-    background-color: $dark-cyan;
+  width: 100%;
+  background-color: $dark-cyan;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 2rem 1.5rem;
+  gap: 1rem;
+  border-radius: 1rem;
+
+  .outputs {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    gap: 2rem;
 
-    .outputs {
-        display: flex;
-        flex-direction: column;
+    .output {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-        .output {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-    
-            &-title {
-                p:first-child {
-                    color: $white;
-                }
-                p:last-child {
-                    color: $grayish-cyan;
-                }
-            }
-    
-            &-value {
-                color: $strong-cyan;
-            }
+      &-title {
+        p:first-child {
+          color: $white;
         }
+        p:last-child {
+          color: $grayish-cyan;
+        }
+      }
+
+      &-value {
+        font-size: 2rem;
+        color: $strong-cyan;
+      }
+    }
+  }
+
+  button[type="reset"] {
+    color: $dark-cyan;
+    background-color: $strong-cyan;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 0.3rem;
+
+    &:hover:not(:disabled) {
+      background-color: $light-grayish-cyan;
     }
 
-    button[type="reset"] {
-        color: $dark-cyan;
-        background-color: $strong-cyan;
-
-        &:hover:not(:disabled) {
-            background-color: $light-grayish-cyan;
-        }
-
-        &:disabled {
-            background-color: lighten($dark-cyan, 5%);
-            cursor: not-allowed;
-        }
-
+    &:disabled {
+      background-color: lighten($dark-cyan, 5%);
+      cursor: not-allowed;
     }
+  }
 }

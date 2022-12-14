@@ -64,9 +64,6 @@
         <div class="output-value">${{ 0 | number }}</div>
       </div>
     </div>
-    <button [disabled]="form.pristine" type="reset">Reset</button>
+    <button [disabled]="form.pristine && form.untouched" type="reset">Reset</button>
   </div>
 </form>
-{{ bill.value }}
-{{ tip.value }}
-{{ nrOfPeople.value }}
