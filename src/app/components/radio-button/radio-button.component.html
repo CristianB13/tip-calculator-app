@@ -1,4 +1,4 @@
 <label>
     {{label || value || ""}}
-    <input type="radio" [formControl]="control" [value]="value">
+    <input type="radio" [formControl]="control" [value]="value" [checked]="control.value === value">
 </label>
