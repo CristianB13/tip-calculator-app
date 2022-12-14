@@ -21,9 +21,9 @@
       </header>
       <div class="tip-grid">
         <app-radio-button
-          *ngFor="let val of ['5%', '10%', '15%', '25%', '50%']"
+          *ngFor="let val of ['5', '10', '15', '25', '50']"
           [control]="tip"
-          label="{{ val }}"
+          label="{{ val+'%' }}"
           value="{{ val }}"
         ></app-radio-button>
         <app-text-input [control]="tip" placeholder="Custom"></app-text-input>
