@@ -6,10 +6,10 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
   templateUrl: './tip-calculator.component.html',
   styleUrls: ['./tip-calculator.component.scss']
 })
-export class TipCalculatorComponent implements OnInit{
+export class TipCalculatorComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -40,5 +40,13 @@ export class TipCalculatorComponent implements OnInit{
 
   get nrOfPeople(): FormControl {
     return this.form.get("nrOfPeople") as FormControl;
+  }
+
+  get tipAmount(): number {
+    return this.bill.value * (this.tip.value / 100) / this.nrOfPeople.value;
+  }
+
+  get total(): number {
+    return this.bill.value * (this.tip.value / 100 + 1) / this.nrOfPeople.value;
   }
 }

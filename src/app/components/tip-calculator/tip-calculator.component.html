@@ -54,14 +54,14 @@
           <p>Tip Amount</p>
           <p>/ person</p>
         </div>
-        <div class="output-value">${{ 0 | number }}</div>
+        <div class="output-value">${{ form.valid ? (tipAmount | number:'.0-2') : 0 }}</div>
       </div>
       <div class="output">
         <div class="output-title">
           <p>Total</p>
           <p>/ person</p>
         </div>
-        <div class="output-value">${{ 0 | number }}</div>
+        <div class="output-value">${{ form.valid ? (total | number:'.0-2') : 0 }}</div>
       </div>
     </div>
     <button [disabled]="form.pristine && form.untouched" type="reset">Reset</button>
