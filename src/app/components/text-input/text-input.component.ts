@@ -10,5 +10,5 @@ export class TextInputComponent {
   @Input() control!: FormControl;
   @Input() label: string = ""
   @Input() placeholder: string = "";
-  @Input() iconUrl!: string;
+  @Input() iconUrl: string = "";
 }
